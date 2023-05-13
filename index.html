@@ -59,21 +59,21 @@
         </div> 
     </section> 
 
-  <section class="container display-column section2">
+  <section class="container2 display-column section2">
      <!-- heading -->
      <div class="heading">
         <h2 class="heading-title">Popular Movies</h2>
     
     <!-- swiper button -->
-    <div class="swiper-btn">
-        <div class="swiper-button-prev"></div>
-        <div class="swiper-button-next"></div>      
+    <div class="swiper-btn" id = "slider-btn1">
+        <div class="swiper-button-prev"  id = "swiper-button-prev1"></div>
+        <div class="swiper-button-next"  id = "swiper-button-next1"></div>      
     </div>
     </div>
         <!-- content -->
        
         <div class="card-boxes">
-            <div class="swiper card-slider1">
+            <div class="swiper card-slider1" id = "slider1">
                 <div class="swiper-wrapper">
                     
                     <div class="swiper-slide">
@@ -139,14 +139,14 @@
         <div class="heading">
            <h2 class="heading-title">Hot Movies</h2>
             <!-- swiper button -->
-            <div class="swiper-btn">
-                <div class="swiper-button-prev"></div>
-                <div class="swiper-button-next"></div>      
+            <div class="swiper-btn"id = "slider-btn2">
+                <div class="swiper-button-prev" id = "swiper-button-prev2"></div>
+                <div class="swiper-button-next" id = "swiper-button-next2"></div>      
             </div>
        </div>
            <!-- content -->
            <div class="card-boxes">
-               <div class="swiper card-slider2">
+               <div class="swiper card-slider2" id = 'slider2'>
                    <div class="swiper-wrapper">
                        
                        <div class="swiper-slide">
@@ -212,15 +212,15 @@
     <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
    <!-- Initialize Swiper -->
    <script>
-   var swiper1 = new Swiper(".card-slider1", {
+   var swiper1 = new Swiper("#slider1", {
              spaceBetween: 10,
              pagination: {
                el: ".swiper-pagination",
                clickable: true,
              },
              navigation: {
-             nextEl: ".swiper-button-next",
-             prevEl: ".swiper-button-prev",
+             nextEl: "#swiper-button-next1",
+             prevEl: "#swiper-button-prev1",
              },
              breakpoints: {
         320: {
@@ -237,15 +237,16 @@
         },
     },
 });
-var swiper2 = new Swiper(".card-slider2", {
+var swiper2 = new Swiper("#slider2", {
              spaceBetween: 10,
+             
              pagination: {
                el: ".swiper-pagination",
                clickable: true,
              },
              navigation: {
-             nextEl: ".swiper-button-next",
-             prevEl: ".swiper-button-prev",
+             nextEl:"#swiper-button-next2",
+             prevEl: "#swiper-button-prev2",
              },
              breakpoints: {
         320: {

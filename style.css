@@ -16,6 +16,7 @@ a{
 }
 
 .container{
+    min-width: 1060px;
     max-width: 1060px;
     margin:auto;
     width: 100%;
@@ -220,6 +221,11 @@ section{
 }
 /* .card-boxes */
 /* section2 */
+.container2{
+max-width: 1060px;
+margin:auto;
+width: 100%;
+}
 .card-boxes{
     display: flex;
     flex-wrap:no-wrap;
