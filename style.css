@@ -16,7 +16,6 @@ a{
 }
 
 .container{
-    min-width: 1060px;
     max-width: 1060px;
     margin:auto;
     width: 100%;
@@ -221,28 +220,42 @@ section{
 }
 /* .card-boxes */
 /* section2 */
-.container2{
-max-width: 1060px;
-margin:auto;
-width: 100%;
-}
+
 .card-boxes{
     display: flex;
-    flex-wrap:no-wrap;
-    justify-content: space-around;
-    align-items: center;
-    margin: 0 auto;
     width: 100%;
+    overflow: hidden;
 }
-.img-box img{
-  height: 200px;
-  width: 100%;
+
+.img-box {
+  width: 257px;
+  height: 250px;
   border: 3px solid #fff;
-  padding: 10px;
+  padding: 8px;
+  overflow: hidden;
   background-color: rgb(2, 2, 2);
+  position: relative;
+}
+.img-box img {
+  width: 100%;
+  height: 100%;
+  object-fit: fill;
+  object-position: center;
+}
+.img-box:hover  {
+    transform: scale(0.96);
+    transition: all 0.3s ease-in-out;
+    cursor: pointer;
 }
 .swiper-wrapper{
     padding: 40px 0;
+}
+
+.swiper-slide{
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
 }
 .display-column{
     display: flex;
@@ -271,11 +284,45 @@ font-weight: 500;
 font-size: 25px !important;
 }
 
-.swiper-slide .img-box:hover img{
-    transform: scale(0.96);
-    transition: all 0.3s ease-in-out;
-    cursor: pointer;
-
+/* card body */
+.card-body{
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    bottom:-100%;
+    right: 0;
+    color: rgb(189, 188, 188);
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background: #0a0a0a86;
+    backdrop-filter: blur(3px);
+    color: rgb(203, 200, 200);  
+    transition:0.7s;
+    
 }
+.img-box:hover .card-body{
+    bottom: 0;   
+}
+.card-title{
+    font-size: 1.8rem;
+    font-weight: 600;
+    margin-bottom: 10px;
+    font-family: sans-serif;
+   
+}
+.card-sub-title{
+    font-size: 15px;
+    font-weight: 300;
+    font-family: sans-serif;
+    margin-bottom: 10px;   
+}
+.card-description{
+    font-size:16px;
+    line-height: 20px;
+    font-family: sans-serif;
+}
+
 
 
