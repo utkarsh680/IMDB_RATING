@@ -1,6 +1,7 @@
 
 const home = document.querySelector('.swiper-wrapper');
-const hotMovies = document.getElementById('hot-movies');
+const searchInput = document.getElementById('search-input');
+
 
 
 // this is my url
@@ -10,19 +11,35 @@ const url = 'https://www.omdbapi.com/?s=';
 const key = '&apikey=71868d6b';
 
 //movie api
-async function getMovie(){
-    try{
-        const response = await fetch('https://www.omdbapi.com/?s=batman&apikey=71868d6b');
-        var data = await response.json();
-        console.log(data); 
-        renderList(data.Search);
-    }catch(err){
-        console.log(err);
-    }
+// async function getMovie(){
+//     try{
+//         const response = await fetch('https://www.omdbapi.com/?s=batman&apikey=71868d6b');
+//         var data = await response.json();
+//         console.log(data); 
+//         renderList(data.Search);
+//     }catch(err){
+//         console.log(err);
+//     }
+// }
+// getMovie();
+function getMovie(){
+    searchInput.addEventListener('input' , (e) => {
+        const searchValue = e.target.value;
+        fetch(url + searchValue + key)
+        .then(response => response.json())
+        .then(data => {
+            console.log(data);
+            if(data.Search ){
+            renderList(data.Search);
+            }
+        }
+        )
+    })
 }
 getMovie();
 
 
+// print movie
 
 function addMovie(data){
   
@@ -91,10 +108,10 @@ function addCard(element,data){
 
 function renderList(data){
     home.innerHTML = "";
-    for(let i=0;i<data.length;i++){
-        addMovie(data[i]);
-        
-    }
+   
+    data.forEach(movie => {
+        addMovie(movie);
+    });
 }
 // renderList();
 

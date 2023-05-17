@@ -133,7 +133,7 @@ section{
     min-height: 470px;
     display: flex;
     flex-wrap: wrap;
-    align-items: center;
+    align-items: start;
     margin-top: 5rem !important;
 }
 
@@ -147,7 +147,7 @@ section{
 
 }
  .home-text{
-    position: absolute;
+    position: absolute ;
     bottom: 0;
     left: 0;
     width: 100%;
@@ -267,14 +267,13 @@ section{
     top: -100px;
 }
 
-/* swiper-btn */
-.swiper-btn{
+/* swiper-btn */ */
+ .swiper-btn{
     display: flex;
 }
 .swiper-button-next,
 .swiper-button-prev{
-    position: static !important;
-    margin: 0 0 0 10px !important;
+  
 }
 
 .swiper-button-next::after,
