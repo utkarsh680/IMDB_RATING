@@ -7,6 +7,10 @@
     scroll-padding-top: 2rem;
 
 }
+body{
+    background-color: rgb(14, 13, 13);
+}
+
 
 img{
     max-width: 100%;
@@ -17,8 +21,7 @@ a{
 
 .container{
     max-width: 1060px;
-    margin:auto;
-    width: 100%;
+    margin: auto;
 }
 header{
     position: fixed;
@@ -28,12 +31,15 @@ header{
     z-index: 100;
 }
 
+
 /* NAVBAR */
 .nav{
     display: flex;
-    align-items: center;
     justify-content: center;
-    padding:20px 0;
+    align-items: center;
+    padding: 20px 0;
+    
+
 
 }
 /* logo */
@@ -48,8 +54,7 @@ header{
 .logo span{
     color: #ff3d00;
     position: absolute;
-    rotate: 15deg;
-    
+    rotate: 15deg;   
 }
 /* .search-box */
 .search-box {
@@ -90,9 +95,7 @@ header{
     object-fit: cover;
     object-position: center;
 }
-body{
-    background-color: rgb(49, 49, 49);
-}
+
 .navbar{
     position: fixed;
     top:50%;
@@ -120,7 +123,6 @@ body{
 section{
     position: relative;
     width: 100%;
-    padding: 5rem 0;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -130,33 +132,28 @@ section{
 /* .home */
 .home{
     position: relative;
-    min-height: 470px;
+    height: 600px;
+    width: 1060px;
+    top: 40px;
     display: flex;
-    flex-wrap: wrap;
+    flex-direction: column;
     align-items: start;
     margin-top: 5rem !important;
 }
 
 .home-image{
-    position: absolute;
-    width: 100%;
     height: 100%;
+    width: 100%;
     z-index: -1;
     object-fit: cover;
     border-radius:0.5rem;
 
 }
  .home-text{
-    position: absolute ;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-end;
-    padding:15px;
-    overflow: hidden;
+    position: relative;
+    top: -200px;
+    padding: 20px;
+  
 }
 .home-title{
     color: #eae7e7;
@@ -204,7 +201,7 @@ section{
     font-weight: 600;
 }
 /* heading */
-.heading{
+/* .heading{
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -217,14 +214,24 @@ section{
     color: #fff;
     font-size: 1.2rem;
     font-weight: 600;
-}
+} */
 /* .card-boxes */
 /* section2 */
 
+.section1{
+    padding: 5rem 0;
+
+}
+.swiper-wrapper{
+    padding: 2rem 0;
+}
+
 .card-boxes{
     display: flex;
+    flex-wrap: wrap;
     width: 100%;
     overflow: hidden;
+
 }
 
 .img-box {
@@ -247,9 +254,6 @@ section{
     transition: all 0.3s ease-in-out;
     cursor: pointer;
 }
-.swiper-wrapper{
-    padding: 40px 0;
-}
 
 .swiper-slide{
     height: 100%;
@@ -257,27 +261,29 @@ section{
     display: flex;
     justify-content: center;
 }
+
 .display-column{
     display: flex;
     flex-direction: column;
 }
-/* section3 */
-.section3{
-    position: relative;
+.section2{
+    position:relative;
     top: -100px;
 }
+/* section3 */
+/* .section3{
+    position: relative;
+    top: -100px;
+} */
 
 /* swiper-btn */ */
  .swiper-btn{
     display: flex;
 }
-.swiper-button-next,
-.swiper-button-prev{
-  
-}
 
 .swiper-button-next::after,
 .swiper-button-prev::after{
+
 color: white;
 font-weight: 500;
 font-size: 25px !important;
@@ -323,5 +329,43 @@ font-size: 25px !important;
     font-family: sans-serif;
 }
 
+/* card information */
+.info-box{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.information{
+    position: absolute;
+    top: 120px;
+    height: 500px;
+    width: 950px;
+
+    translate: translate(-50%,-50%);
+    margin: auto;
+    background-color: black;
+    border: 3px solid rgb(57, 56, 56);
+    border-radius: 0.5rem;
+    display: none;
+    
+   
+}
+.remove-card{
+    color: white;
+    position: relative;  
+}
+.remove-card i{
+    font-size: 1.5rem;
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding: 10px;
+    transition: all 0.3s ease-in-out;
+
+}
+.remove-card i:hover{
+    color: red;
+    cursor: pointer;
+}
 
 
