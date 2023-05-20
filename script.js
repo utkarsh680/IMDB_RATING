@@ -51,11 +51,49 @@ function openInfoBox(imdbID){
         element.classList.add('box-info');
         element.innerHTML = `
         <div class="remove-card" onclick ="closeInfoBox()" >
-            <i class="fa-solid fa-square-xmark"></i>
-        </div>
-        <div class="info-img">
-        <img src="${data.Poster}" alt="" style="height: 200px; width: 300px; padding: 20px; border-radius: 20%; ">
-        <div>
+                <i class="fa-solid fa-square-xmark"></i>
+            </div>
+            <div class="full-box-info">
+                <div class="info-img">
+                    <img src="${data.Poster}" alt="IMG"  class = "main-box-img">
+                </div>
+                <div class="full-info">
+                    <p class="Title">${data.Title}<span class="Year">${data.Year}</span></p>
+                    <div class="movie-type">
+                        <span class="Genre">${data.Genre}</span>
+                        <span class="Rated">${data.Rated}</span>
+                    </div> 
+                    <div class="Rating">
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        -
+                        <span class="imdbRating"><span class="Rate">${data.imdbRating}</span><span class="Rating-text">&nbspRating</span></span>
+                    </div>
+                    <p class="plot">${data.Plot}</p>
+                    <div class="slot1">
+                        <p class="Type"><span>Type&nbsp:</span>&nbsp${data.Type}</p>
+                        <p class="Runtime"><span>Runtime&nbsp:</span>&nbsp${data.Runtime}</p>
+                        <p class="Language"><span>Language&nbsp:</span>&nbsp${data.Language}</p>
+                        <p class="Actors"><span>Actors&nbsp:</span>&nbsp${data.Actors}</p>
+                    </div>
+                    <div class="slot2">
+                        <p class="Released"><span>Released&nbsp:</span>&nbsp${data.Released}</p>
+                        <p class="Country"><span>Country&nbsp:</span>&nbsp${data.Country}</p>
+                        <p class="Director"><span>Director&nbsp:</span>&nbsp${data.Director}</p>
+                        <p class="Writer"><span>Writer&nbsp:</span>&nbsp${data.Writer}</p>
+                        <p class="Production"><span>Production&nbsp:</span>&nbsp${data.Production}</p>
+                        <p class="Awards"><span>Awards&nbsp:</span>&nbsp${data.Awards}</p>
+                    </div>
+                    <div class="slot3">
+                        <p class="BoxOffice"><span>BoxOffice&nbsp:</span><span class="Money">&nbsp${data.BoxOffice}</span></p>
+                        <p class="Metascore"><span>Metascore&nbsp:</span>&nbsp${data.Metascore}</p>
+                        <p class="imdbVotes"><span>imdbVotes&nbsp:</span>${data.imdbVotes}</p>
+
+                    </div>
+                </div> 
+            </div> 
         `;
         openBox.appendChild(element);
 
@@ -74,9 +112,6 @@ function closeInfoBox(){
         
   
 }
-
-
-
 
 // print movie
 
