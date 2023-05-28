@@ -6,6 +6,8 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <!-- swiper -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css" />
+    <!-- izzi toast link -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/izitoast/dist/css/iziToast.min.css">
     
 </head>
 <body>
@@ -17,8 +19,14 @@
                     IM<span>DB</span>
                 </a>
                 <div class="search-box">
-                    <input type="text" placeholder="type movie" class="input-box" id = "search-input">
-                    <i class="fa-solid fa-magnifying-glass"></i>
+                    <div class="input-box">
+                        <i class="fa-solid fa-magnifying-glass glass"></i>
+                        <input type="text" placeholder="type movie" id = "search-input" > 
+                        <img src="https://cdn-icons-png.flaticon.com/512/594/594598.png" alt="" class="cross-button">
+                    </div>          
+                    <div class="serach-icon-button">
+                        <button type="submit" class="search-button"> <i class="fa-solid fa-magnifying-glass"></i></button>
+                    </div>  
                 </div>
                 <a href ="#" class="user">
                     <img src="kerlaStory.PNG" alt="" class="user-img">
@@ -26,24 +34,23 @@
             </div>
             <!-- navbar -->
             <div class="navbar">
-                <a href ="#home" class="nav-link nav-active">
+                <p class="nav-link nav-active">
+                    <i class="fa-solid fa-house"></i>
+                    <span class="nav-link-title" id = "go-home">Home</span>
+                </p>
+                <p class="nav-link">
+                    <i class="fa-solid fa-house"></i>
+                    <span class="nav-link-title" id= 'favourite-open'>favourite</span>
+                </p>
+                <a href ="#home" class="nav-link">
                     <i class="fa-solid fa-house"></i>
                     <span class="nav-link-title">Home</span>
-                   </a>
-                   <a href ="#home" class="nav-link">
-                    <i class="fa-solid fa-house"></i>
-                    <span class="nav-link-title">Trending</span>
-                   </a>
-                   <a href ="#home" class="nav-link">
+                </a>
+                <a href ="#home" class="nav-link">
                     <i class="fa-solid fa-house"></i>
                     <span class="nav-link-title">Home</span>
-                   </a>
-                   <a href ="#home" class="nav-link">
-                    <i class="fa-solid fa-house"></i>
-                    <span class="nav-link-title">Home</span>
-                   </a>
-            </div>
-            
+                </a>
+            </div>       
         </div>
     </header>
     
@@ -60,130 +67,94 @@
         </div> 
     </section> 
 
-  <section class="container display-column section2">
-     <!-- heading -->
-     <!-- <div class="heading">
-        <h2 class="heading-title">Popular Movies</h2>  
-    </div> -->
-        <!-- content -->  
+    <section class="container display-column section2">  
         <div class="card-boxes" >
-            <div class="swiper card-slider" id = "slider1">
-                <div class="swiper-wrapper" >                   
-                     
-                    <!-- <div class="swiper-slide">
-                        <div class="img-box">
+                         
+                        <!-- <div class="img-box">
+                            <div class="favourite">
+                                <img src="https://cdn-icons-png.flaticon.com/512/10037/10037207.png" id= favourite-${data.imdbID} alt="" class="favourite-logo" onclick = "favouriteMovie('${data.imdbID}')">
+                             </div>
                             <img src="movies.jpg" alt="">
-                            <div class="card-body">
-                                <h1 class="card-title">
-                                    Sanam
-                                </h1>
-                                <p class="card-sub-title">
-                                    Web Developer
+                            <div class="card-body" onclick ="openInfoBox('${data.imdbID}')">
+                                <div class="movie-name">
+                                    SanamMan hji hi hio hi hi
+                                </div>
+                                <div class="star-year-genre">
+                
+                                        <div class="movie-star">****</div>
+                                        <div class="movie-year">2002</div>
+                                        <div class="movie-genre">PG-5</div>
+                                </div>
+                                <p class="movie-action">
+                                    Web Developer hi
                                 </p>
-                                <p class="card-description">
-                                    Hi I am Sanambir Singh and I am a web developer.
+                                <p class="movie-language">
+                                    hindi english sanskrit
                                 </p>
-
                             </div>     
-                       </div>
-                    </div>  -->
-                
-                </div>
-                
-                
-                <!-- Add Pagination -->
-                <div class="swiper-pagination"></div>
-                                <!-- swiper button -->
-                    <div class="swiper-btn" id = "slider-btn1">
-                        <div class="swiper-button-next"  id = "swiper-button-next1"></div> 
-                        <div class="swiper-button-prev"  id = "swiper-button-prev1"></div>
-                             
-                    </div>
-                    
-            </div>
-            
-        </div>
-    </section>
+                       </div> -->
+        </div>     
+        </section>
+    <!-- card click box container -->
     <div class="info-box container"> 
-        <div class="information">
-            
+        <div class="information"> 
+                                          
         </div>
     </div>
 
-    
-    <!-- <section class="container display-column section3">
-       
-        <div class="heading">
-           <h2 class="heading-title">Hot Movies</h2>
-            
-            <div class="swiper-btn"id = "slider-btn2">
-                <div class="swiper-button-prev" id = "swiper-button-prev2"></div>
-                <div class="swiper-button-next" id = "swiper-button-next2"></div>      
-            </div>
-       </div>
-        
-           <div class="card-boxes">
-               <div class="swiper card-slider" id = 'slider2'>
-                   <div class="swiper-wrapper" id = "hot-movies">
-                       
-                    <div class="swiper-slide">
-                        <div class="img-box">
-                            <img src="movies.jpg" alt="">
-                            <div class="card-body">
-                                <h1 class="card-title">
-                                    Sanam
-                                </h1>
-                                <p class="card-sub-title">
-                                    Web Developer
-                                </p>
-                                <p class="card-description">
-                                    Hi I am Sanambir Singh and I am a web developer.
-                                </p>
+    <!-- favourite -->
+    <div class="favourite-body">
+        <div class="favourite-card-container">
 
-                            </div>
-                            
-                       </div>
+            <!-- <div class="fav-boxes">
+                <div class="fav-logo">
+                <img src="https://cdn-icons-png.flaticon.com/512/210/210545.png" id= favourite-${data.imdbID} alt="" class="favourite-logo" onclick = "favouriteMovie('${data.imdbID}')">
+                </div>
+                <div class="fav-card-info">
+                  <div class="movie-name">
+                    ${data.Title}
                     </div>
-                   </div>
-                  
-                   <div class="swiper-pagination"></div>
+                    <div class="star-year-genre">
+                            <div class="movie-star">${data.imdbRating}</div>
+                            <div class="movie-year">${data.Year}</div>
+                            <div class="movie-genre">${data.Rated}</div>
+                    </div>
+                    <p class="movie-action">
+                   hello sir
+                    </p>
+                    <p class="movie-language">
+                
+                    ${data.Language}
+                    </p>
+              
+                </div>
+                <img src="movies.jpg" alt="" class="movies">
                </div>
-           </div>
-       </section> -->
+                 -->
+        </div>
+    </div>
+        
+    <img src="https://freepngimg.com/thumb/spiderman/2-2-spider-man-picture.png" class="spiderman1" alt="">
+    <img src="https://freepngimg.com/thumb/avengers/24571-8-avengers-transparent-image.png" class="antman" alt="">
+    <!-- <div class="avengers2-title-box"> -->
+    <img src="https://freepngimg.com/thumb/avengers/24403-2-avengers-transparent-background.png" class="avengers2" alt="">
+  
     <!-- Swiper JS -->
     <script src="script.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
    <!-- Initialize Swiper -->
-   <script>
-   var swiper1 = new Swiper("#slider1", {
-             spaceBetween: 10,
-             slidesPerView: 4,
-             pagination: {
-               el: ".swiper-pagination",
-               clickable: true,
-             },
-             navigation: {
-             nextEl: "#swiper-button-next1",
-             prevEl: "#swiper-button-prev1",
-             },
-             
-            //  breakpoints: {
-            // 320: {
-            //   slidesPerView: 1,
-            // },
-            // 480: {
-            //   slidesPerView: 2,
-            // },
-            // 768: {
-            //   slidesPerView: 3,
-            // },
-            // 1060: {
-            //   slidesPerView: 4,
-            // },
-            // },
-            
-});
+<script src="https://cdnjs.cloudflare.com/ajax/libs/izitoast/1.4.0/js/iziToast.min.js"></script>
+<script>
+const mouseWheel = document.querySelector('.card-boxes');
 
+mouseWheel.addEventListener('wheel', function(e) {
+    const race = 400; // How many pixels to scroll
+
+    if (e.deltaY > 0) // Scroll right
+        mouseWheel.scrollLeft += race;
+    else // Scroll left
+        mouseWheel.scrollLeft -= race;
+		e.preventDefault();
+});
 </script>
 </body>
 </html>
