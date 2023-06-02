@@ -5,7 +5,10 @@ const closeBox = document.querySelector(".remove-card");
 const imgBlur = document.querySelector(".home-image");
 const homeTextBlur = document.querySelector(".home-text");
 const section2 = document.querySelector(".section2");
+const slogon = document.querySelector(".slogon-container");
 section2.style.marginTop = "-60px";
+
+
 
 
 // for home page
@@ -114,11 +117,15 @@ function getMovie() {
       .then((response) => response.json())
       .then((data) => {
         console.log(data);
-        if (data.Response === "False") {
+        if (data.Response == "False" && searchInput.value == "") {
+            home.style.display = 'none'
           renderList([]);
-        } else if (searchInput !== "") {
+        } else {
+            home.style.display = 'flex'
+            slogon.style.display = 'none'
           renderList(data.Search);
         }
+      
       });
   });
 }
