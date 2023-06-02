@@ -291,7 +291,7 @@ function cardClick(element, data) {
   <div class="info-img">
       <img src="${data.Poster}" alt="IMG"  class = "main-box-img">
   </div>
-  <div class="full-info" >
+  <ujdiv class="full-info" >
       <p class="Title">${data.Title}<span class="Year">${data.Year}</span></p>
       <div class="movie-type">
           <span class="Genre">${data.Genre}</span>

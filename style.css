@@ -50,12 +50,9 @@ header{
 }
 /* logo */
 
-.nav .logo{
-    
-   font-size: 2.5rem;
-   color:  blueviolet;
-   font-weight: 600;
-   font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+.nav .logo img{
+  height: 4rem;
+  width: 4rem;
 }
 
 .logo span{
@@ -785,6 +782,7 @@ section{
     
 
 }
+/* for laptop */
 @media screen and (max-width: 840px){
     .card-boxes{
         display: flex;
@@ -838,6 +836,7 @@ section{
        
     }
 }
+/* for tablet */
 @media screen and (max-width: 717px){
   .container{
     max-width: 600px;
@@ -845,21 +844,18 @@ section{
   }
   .search-box{
     margin-left: 50px;
-    width: 250px;
+    width: 280px;
   }
   .header{
     display: grid;
     grid-template-columns: 1fr 1.5fr 1fr 1fr;
   }
-  .nav .logo{   
-    font-size: 1.5rem;
-    margin-left: 20px;
-   }
    
   .user-img{
     display: none;
   }
 }
+/* for laptop hight */
 @media screen and (max-height: 722px){ 
     .card-boxes{
         display: flex;
@@ -876,4 +872,26 @@ section{
     .home{
         display: none;
     }
+}
+
+/* for mobile */
+@media screen and (max-width: 527px){
+    
+.nav .logo img{
+   position: absolute;
+   top: 60px;
+   left: 40%;
+  
+  }
+  .container{
+ 
+    max-width: 360px;
+    
+  }
+  .menubar{ 
+    margin-right: 10px;
+  }
+  .search-box{
+    margin-left: 10px;
+  }
 }
