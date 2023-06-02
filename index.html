@@ -15,9 +15,11 @@
     <header>
         <div class="nav container">
             <div class="header">
+                <div class="logo-baground">
                 <a href="#" class = 'logo'>             
                     IM<span>DB</span>
                 </a>
+              </div>
                 <div class="search-box">
                     <div class="input-box">
                         <i class="fa-solid fa-magnifying-glass glass"></i>
@@ -31,31 +33,40 @@
                 <a href ="#" class="user">
                     <img src="kerlaStory.PNG" alt="" class="user-img">
                 </a>
+                <div class="menubar">
+                    <div class="open-menubar">
+                    <i class="fa-solid fa-bars menubar-icon"></i>
+                    </div>
+                    <div class="close-menubar">
+                    <i class="fa-solid fa-xmark close-meubar-icon"></i>
+                    </div>
+                </div>
             </div>
             <!-- navbar -->
-            <div class="navbar">
-                <p class="nav-link nav-active">
+            <div class="navbar active">
+                <p class="nav-link home-click nav-active " id = "home-click">
                     <i class="fa-solid fa-house"></i>
-                    <span class="nav-link-title" id = "go-home">Home</span>
+                    <span class="nav-link-title" >Home</span>
                 </p>
-                <p class="nav-link">
-                    <i class="fa-solid fa-house"></i>
-                    <span class="nav-link-title" id= 'favourite-open'>favourite</span>
+                <p class="nav-link favourite-click"  id= 'favourite-open'>
+                    <i class="fa-solid fa-heart"></i>
+                    <span class="nav-link-title" >favourite</span>
                 </p>
-                <a href ="#home" class="nav-link">
-                    <i class="fa-solid fa-house"></i>
-                    <span class="nav-link-title">Home</span>
+                <a href="https://clinquant-mermaid-09750f.netlify.app/" class="nav-link contact-click">
+                    <i class="fa-regular fa-address-card"></i>
+                    <span class="nav-link-title">Contact</span>
                 </a>
-                <a href ="#home" class="nav-link">
-                    <i class="fa-solid fa-house"></i>
-                    <span class="nav-link-title">Home</span>
+                <a href="https://github.com/utkarsh680?tab=repositories" class="nav-link profile-click">
+                    <i class="fa-solid fa-user"></i>
+                    <span class="nav-link-title">Profile</span>
                 </a>
             </div>       
         </div>
+        
     </header>
+    <!-- menubutton -->
     
-    <section class="home container section1" id = "home"> 
-       
+    <section class="home container section1" id = "home">     
         <img src="movies.jpg" alt="movie" class="home-image">
         <div class="home-text">
             <h1 class="home-title">The Lady Spider<br><p class="description">To Hot to handle</p></h1>
@@ -113,7 +124,7 @@
                 <div class="fav-card-info">
                   <div class="movie-name">
                     ${data.Title}
-                    </div>
+                </div>
                     <div class="star-year-genre">
                             <div class="movie-star">${data.imdbRating}</div>
                             <div class="movie-year">${data.Year}</div>
@@ -134,16 +145,11 @@
         </div>
     </div>
         
-    <img src="https://freepngimg.com/thumb/spiderman/2-2-spider-man-picture.png" class="spiderman1" alt="">
-    <img src="https://freepngimg.com/thumb/avengers/24571-8-avengers-transparent-image.png" class="antman" alt="">
-    <!-- <div class="avengers2-title-box"> -->
-    <img src="https://freepngimg.com/thumb/avengers/24403-2-avengers-transparent-background.png" class="avengers2" alt="">
-  
     <!-- Swiper JS -->
     <script src="script.js"></script>
    <!-- Initialize Swiper -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/izitoast/1.4.0/js/iziToast.min.js"></script>
-<script>
+<!-- <script>
 const mouseWheel = document.querySelector('.card-boxes');
 
 mouseWheel.addEventListener('wheel', function(e) {
@@ -155,6 +161,6 @@ mouseWheel.addEventListener('wheel', function(e) {
         mouseWheel.scrollLeft -= race;
 		e.preventDefault();
 });
-</script>
+</script> -->
 </body>
 </html>

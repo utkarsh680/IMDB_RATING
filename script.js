@@ -9,22 +9,72 @@ section2.style.marginTop = "-60px";
 
 
 // for home page
-const goHome = document.getElementById("go-home");
+let goHome = document.getElementById("home-click");
 goHome.addEventListener("click", () => {
+  home.style.zIndex = "1";
   favouriteBody.style.display = "none";
-  spiderman1.style.display = "block";
-  avengers2.style.display = "block";
-  antman.style.display = "block";
   imgBlur.style.display = "block";
   homeTextBlur.style.display = "block";
   searchBox.style.filter = "none";
   input.style.pointerEvents = "auto";
+  // for active button
+  goHome.classList.add("nav-active");
+  favouriteOpen.classList.remove("nav-active");
+  contactClick.classList.remove("nav-active");
+  profileClick.classList.remove("nav-active");
 });
 
 // for favourite list
 const favouriteListContainer = document.querySelector(".favourite-card-container");
-const favouriteOpen = document.getElementById("favourite-open");
-const favouriteBody = document.querySelector(".favourite-body");
+let favouriteOpen = document.getElementById("favourite-open");
+let favouriteBody = document.querySelector(".favourite-body");
+
+// favourite list open
+favouriteOpen.addEventListener("click", () => {
+  favouriteBody.style.display = "block";
+  home.style.zIndex = "-2";
+  console.log("hello");
+  imgBlur.style.display = "none";
+  searchBox.style.filter = "blur(3px)";
+  input.style.pointerEvents = "none";
+  homeTextBlur.style.display = "none";
+  // for search box
+  glass.style.zIndex = "-2";
+  glass.style.transition = "all 0.2";
+  inputBox.style.padding = "0px 0px 0px 30px";
+  inputBox.style.transition = "all 0.2s";
+  inputBox.style.border = "1px solid #383636";
+  crossButton.style.zIndex = "-2";
+  searchInput.value = "";
+
+  // active button
+  favouriteOpen.classList.add("nav-active");
+  goHome.classList.remove("nav-active");
+  contactClick.classList.remove("nav-active");
+  profileClick.classList.remove("nav-active");
+});
+
+// for contact page
+let contactClick = document.querySelector(".contact-click");
+contactClick.addEventListener("click", () => {
+
+  goHome.classList.remove("nav-active");
+  favouriteOpen.classList.remove("nav-active");
+  profileClick.classList.remove("nav-active");
+  contactClick.classList.add("nav-active");
+});
+
+// for about page or profile
+let profileClick = document.querySelector(".profile-click");
+profileClick.addEventListener("click", () => {
+  goHome.classList.remove("nav-active");
+  favouriteOpen.classList.remove("nav-active");
+  contactClick.classList.remove("nav-active");
+  profileClick.classList.add("nav-active");
+});
+
+
+
 
 // search box work
 const inputBox = document.querySelector(".input-box");
@@ -51,13 +101,6 @@ searchInput.addEventListener("click", () => {
   inputBox.style.padding = "0px 0px 0px 40px";
 });
 
-// for png img
-const avengers = document.querySelector(".avengers");
-const avengers2 = document.querySelector(".avengers2");
-const antman = document.querySelector(".antman");
-const spiderman1 = document.querySelector(".spiderman1");
-
-
 // this is my url
 const url = "https://www.omdbapi.com/?s=";
 // this is my api key
@@ -83,19 +126,21 @@ getMovie();
 
 // function openInfoBox
 function openInfoBox(imdbID) {
-  // for png transition
-  avengers2.style.transition = "all 1.2s ease-in-out";
-  avengers2.style.left = "35.4%";
-  antman.style.transition = "all 1.2s ease-in-out";
-  antman.style.top = "15%";
-  spiderman1.style.transition = "all 1.2s ease-in-out";
-  spiderman1.style.top = "69%";
   openBox.style.display = "block";
   imgBlur.style.filter = "blur(3px)";
   imgBlur.style.background = "#0a0a0a86";
   homeTextBlur.style.filter = "blur(3px)";
   section2.style.filter = "blur(3px)";
-  section2.style.marginTop = "-210px";
+  if( window.innerWidth > 1536){
+    section2.style.marginTop = "-210px";
+  }
+  else{
+    section2.style.marginTop = "-147px";
+  }
+
+  if( window.innerWidth <= 840){
+    section2.style.marginTop = "-60px";
+  }
   section2.style.transition = "all 0.3s ease-in-out";
 
   section2.style.pointerEvents = "none";
@@ -241,7 +286,7 @@ function cardClick(element, data) {
 </div>
 <div class="full-box-info" >
   <div class="add-fav">
-      <img src="https://cdn-icons-png.flaticon.com/512/210/210545.png" id= favouriteList-${data.imdbID} alt="" class="favourite-logo" onclick = "favouriteMovie('${data.imdbID}')">
+      <img src="https://cdn-icons-png.flaticon.com/512/10037/10037207.png" id= favouriteList-${data.imdbID} alt="" class="favourite-logo" onclick = "favouriteMovie('${data.imdbID}')">
   </div>
   <div class="info-img">
       <img src="${data.Poster}" alt="IMG"  class = "main-box-img">
@@ -284,6 +329,18 @@ function cardClick(element, data) {
 </div>     
 `;
   openBox.appendChild(element);
+
+  if(favouriteListStorage.includes(data.imdbID)){
+    console.log('hi')
+    let favouriteListIcon = document.getElementById(`favouriteList-${data.imdbID}`);
+    favouriteListIcon.src = "https://cdn-icons-png.flaticon.com/512/210/210545.png";
+  }
+  else{
+    console.log("hello")
+    let favouriteListIcon = document.getElementById(`favouriteList-${data.imdbID}`);
+    favouriteListIcon.src = "https://cdn-icons-png.flaticon.com/512/10037/10037207.png";
+    
+  }
 }
 
 // function closeInfoBox
@@ -293,22 +350,14 @@ function closeInfoBox() {
   imgBlur.style.background = "none";
   homeTextBlur.style.filter = "none";
   section2.style.filter = "none";
-  section2.style.marginTop = "-60px";
+ 
   section2.style.pointerEvents = "auto";
+  section2.style.marginTop = "-60px";
 
   // for search box
   searchBox.style.filter = "none";
   input.style.pointerEvents = "auto";
 
-  // for png transition
-  setTimeout(() => {
-    spiderman1.style.top = 30 + "%";
-    spiderman1.style.transition = "all 0.1s ease-in-out";
-    avengers2.style.left = "-40%";
-    antman.style.top = "-100%";
-    antman.style.transition = "all 0.5s ease-in-out";
-    avengers2.style.transition = "all 0.5s ease-in-out";
-  }, 0);
 }
 
 // print movie
@@ -407,9 +456,7 @@ function favouriteMovie(imdbID) {
     successNoty("Movie added to favoritelist");
   }
   let favouriteListIcon = document.getElementById(`favourite-${imdbID}`);
-  let favouriteListIcon2 = document.getElementById(`favouriteList-${imdbID}`);
 
- 
   console.log(favouriteListIcon)
   favouriteListIcon.classList.toggle("active");
   if (favouriteListIcon.classList.contains("active")) {
@@ -419,7 +466,7 @@ function favouriteMovie(imdbID) {
     favouriteListIcon.src =
       "https://cdn-icons-png.flaticon.com/512/10037/10037207.png";
   }
-  console.log(favouriteListIcon)
+
 
   let index = favouriteListStorage.indexOf(imdbID);
   if (index !== -1) {
@@ -509,26 +556,6 @@ function renderfavouriteList(element, data) {
   }
 }
 
-// favourite list open
-favouriteOpen.addEventListener("click", () => {
-  favouriteBody.style.display = "block";
-  console.log("hello");
-  spiderman1.style.display = "none";
-  avengers2.style.display = "none";
-  antman.style.display = "none";
-  imgBlur.style.display = "none";
-  searchBox.style.filter = "blur(3px)";
-  input.style.pointerEvents = "none";
-  homeTextBlur.style.display = "none";
-  // for search box
-  glass.style.zIndex = "-2";
-  glass.style.transition = "all 0.2";
-  inputBox.style.padding = "0px 0px 0px 30px";
-  inputBox.style.transition = "all 0.2s";
-  inputBox.style.border = "1px solid #383636";
-  crossButton.style.zIndex = "-2";
-  searchInput.value = "";
-});
 
 // izitoast
 function successNoty(msg) {
@@ -545,10 +572,13 @@ function warningNoty(msg) {
   });
 }
 
+// console the developer info
+console.log("%c Hey! it's Utkarsh Singh,", "color : #00000; font-size : 1rem; font-weight : bold;");
+console.log("%c Passionate Full Stack Developer.", "color : #00000; font-size : 0.7rem; font-weight : bold;");
 const slider = document.querySelector(".card-boxes");
 let isDown = false;
 let startX;
-let scrollLeft;
+let scrollLeft
 
 slider.addEventListener("mousedown", (e) => {
   isDown = true;
