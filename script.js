@@ -6,20 +6,40 @@ const imgBlur = document.querySelector(".home-image");
 const homeTextBlur = document.querySelector(".home-text");
 const section2 = document.querySelector(".section2");
 const slogon = document.querySelector(".slogon-container");
-section2.style.marginTop = "-60px";
 
 
+
+
+// menubar active
+const openMenubar = document.querySelector(".open-menubar");
+const closeMenubar = document.querySelector(".close-menubar");
+const navbar = document.getElementById("navbar");
+function openMenubarFunction() {
+  openMenubar.style.toggle = "none";
+  openMenubar.style.display = "none";
+  navbar.style.display = "flex";
+  closeMenubar.style.display = "flex";
+}
+function closeMenubarFunction() {
+  navbar.style.display = "none";
+  openMenubar.style.display = "flex";
+  closeMenubar.style.display = "none";
+}
+openMenubar.addEventListener("click", openMenubarFunction);
+closeMenubar.addEventListener("click", closeMenubarFunction);
 
 
 // for home page
 let goHome = document.getElementById("home-click");
 goHome.addEventListener("click", () => {
   home.style.zIndex = "1";
+  
   favouriteBody.style.display = "none";
   imgBlur.style.display = "block";
   homeTextBlur.style.display = "block";
   searchBox.style.filter = "none";
   input.style.pointerEvents = "auto";
+  
   // for active button
   goHome.classList.add("nav-active");
   favouriteOpen.classList.remove("nav-active");
@@ -34,6 +54,7 @@ let favouriteBody = document.querySelector(".favourite-body");
 
 // favourite list open
 favouriteOpen.addEventListener("click", () => {
+
   favouriteBody.style.display = "block";
   home.style.zIndex = "-2";
   console.log("hello");
@@ -117,12 +138,14 @@ function getMovie() {
       .then((response) => response.json())
       .then((data) => {
         console.log(data);
-        if (data.Response == "False" && searchInput.value == "") {
-            home.style.display = 'none'
+        if (searchInput.value == "") {
+          slogon.style.display = "block";
+          home.style.display = 'none'
           renderList([]);
-        } else {
-            home.style.display = 'flex'
-            slogon.style.display = 'none'
+        }
+        else {
+          slogon.style.display = "none";
+          home.style.display = 'flex'    
           renderList(data.Search);
         }
       
@@ -141,11 +164,12 @@ function openInfoBox(imdbID) {
   if( window.innerWidth > 1536){
     section2.style.marginTop = "-210px";
   }
-  else{
+
+  else if( window.innerWidth < 1536 && window.innerWidth > 840){
     section2.style.marginTop = "-147px";
   }
 
-  if( window.innerWidth <= 840){
+  else{
     section2.style.marginTop = "-60px";
   }
   section2.style.transition = "all 0.3s ease-in-out";
