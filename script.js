@@ -7,26 +7,20 @@ const homeTextBlur = document.querySelector(".home-text");
 const section2 = document.querySelector(".section2");
 const slogon = document.querySelector(".slogon-container");
 
-
-
-
 // menubar active
-
-
 const openMenubar = document.querySelector(".open-menubar");
 const closeMenubar = document.querySelector(".close-menubar");
-const navUl= document.querySelector(".nav-ul");
+const navUl = document.querySelector(".nav-ul");
 function openMenubarFunction() {
   openMenubar.style.display = "none";
   closeMenubar.style.display = "flex";
   navUl.style.display = "flex";
-  imgBlur.style.display = "none"; 
+  imgBlur.style.display = "none";
   homeTextBlur.style.display = "none";
   slogon.style.display = "none";
-  home.style.display = 'none';
+  home.style.display = "none";
   searchBox.style.filter = "blur(3px)";
   input.style.pointerEvents = "none";
-  
 }
 function closeMenubarFunction() {
   navUl.style.display = "none";
@@ -34,19 +28,21 @@ function closeMenubarFunction() {
   closeMenubar.style.display = "none";
   imgBlur.style.display = "block";
   homeTextBlur.style.display = "block";
-  home.style.display = 'flex'; 
+  home.style.display = "flex";
   window.location.reload();
 }
 
 openMenubar.addEventListener("click", openMenubarFunction);
 closeMenubar.addEventListener("click", closeMenubarFunction);
 
+
+// for mobile menubar
 const homeOpenBox = document.querySelector(".home-open");
 const favouriteOpenBox = document.querySelector(".favourite-open");
 const contactOpenBox = document.querySelector(".contact-open");
 const profileOpenBox = document.querySelector(".profile-open");
 
-
+// home click
 homeOpenBox.addEventListener("click", () => {
   window.location.reload();
   home.style.zIndex = "1";
@@ -57,41 +53,40 @@ homeOpenBox.addEventListener("click", () => {
   searchBox.style.filter = "none";
   input.style.pointerEvents = "auto";
   slogon.style.display = "flex";
+});
 
-}
-);
+// favourite click
 favouriteOpenBox.addEventListener("click", () => {
   favouriteBody.style.display = "block";
   navUl.style.display = "none";
-
 });
 
+// contact click
 contactOpenBox.addEventListener("click", () => {
   navUl.style.display = "none";
 });
 
+// profile click
 profileOpenBox.addEventListener("click", () => {
   navUl.style.display = "none";
 });
+
+// for logo click
 const logo = document.querySelector(".logo");
 logo.addEventListener("click", () => {
   window.location.reload();
 });
 
-
-
-
 // for home page
 let goHome = document.getElementById("home-click");
 goHome.addEventListener("click", () => {
   home.style.zIndex = "1";
-  
   favouriteBody.style.display = "none";
   imgBlur.style.display = "block";
   homeTextBlur.style.display = "block";
   searchBox.style.filter = "none";
   input.style.pointerEvents = "auto";
-  
+
   // for active button
   goHome.classList.add("nav-active");
   favouriteOpen.classList.remove("nav-active");
@@ -100,13 +95,14 @@ goHome.addEventListener("click", () => {
 });
 
 // for favourite list
-const favouriteListContainer = document.querySelector(".favourite-card-container");
+const favouriteListContainer = document.querySelector(
+  ".favourite-card-container"
+);
 let favouriteOpen = document.getElementById("favourite-open");
 let favouriteBody = document.querySelector(".favourite-body");
 
 // favourite list open
 favouriteOpen.addEventListener("click", () => {
-
   favouriteBody.style.display = "block";
   home.style.zIndex = "-2";
   console.log("hello");
@@ -133,7 +129,6 @@ favouriteOpen.addEventListener("click", () => {
 // for contact page
 let contactClick = document.querySelector(".contact-click");
 contactClick.addEventListener("click", () => {
-
   goHome.classList.remove("nav-active");
   favouriteOpen.classList.remove("nav-active");
   profileClick.classList.remove("nav-active");
@@ -148,9 +143,6 @@ profileClick.addEventListener("click", () => {
   contactClick.classList.remove("nav-active");
   profileClick.classList.add("nav-active");
 });
-
-
-
 
 // search box work
 const inputBox = document.querySelector(".input-box");
@@ -184,7 +176,6 @@ const key = "&apikey=71868d6b";
 
 // for finding movie through search box
 function getMovie() {
-  
   searchInput.addEventListener("input", () => {
     fetch(url + searchInput.value + key)
       .then((response) => response.json())
@@ -192,15 +183,13 @@ function getMovie() {
         console.log(data);
         if (searchInput.value == "") {
           slogon.style.display = "block";
-          home.style.display = 'none'
+          home.style.display = "none";
           renderList([]);
-        }
-        else {
+        } else {
           slogon.style.display = "none";
-          home.style.display = 'flex'    
+          home.style.display = "flex";
           renderList(data.Search);
         }
-      
       });
   });
 }
@@ -213,15 +202,11 @@ function openInfoBox(imdbID) {
   imgBlur.style.background = "#0a0a0a86";
   homeTextBlur.style.filter = "blur(3px)";
   section2.style.filter = "blur(3px)";
-  if( window.innerWidth > 1536){
+  if (window.innerWidth > 1536) {
     section2.style.marginTop = "-210px";
-  }
-
-  else if( window.innerWidth < 1536 && window.innerWidth > 840){
+  } else if (window.innerWidth < 1536 && window.innerWidth > 840) {
     section2.style.marginTop = "-147px";
-  }
-
-  else{
+  } else {
     section2.style.marginTop = "-60px";
   }
   section2.style.transition = "all 0.3s ease-in-out";
@@ -413,16 +398,20 @@ function cardClick(element, data) {
 `;
   openBox.appendChild(element);
 
-  if(favouriteListStorage.includes(data.imdbID)){
-    console.log('hi')
-    let favouriteListIcon = document.getElementById(`favouriteList-${data.imdbID}`);
-    favouriteListIcon.src = "https://cdn-icons-png.flaticon.com/512/210/210545.png";
-  }
-  else{
-    console.log("hello")
-    let favouriteListIcon = document.getElementById(`favouriteList-${data.imdbID}`);
-    favouriteListIcon.src = "https://cdn-icons-png.flaticon.com/512/10037/10037207.png";
-    
+  if (favouriteListStorage.includes(data.imdbID)) {
+    console.log("hi");
+    let favouriteListIcon = document.getElementById(
+      `favouriteList-${data.imdbID}`
+    );
+    favouriteListIcon.src =
+      "https://cdn-icons-png.flaticon.com/512/210/210545.png";
+  } else {
+    console.log("hello");
+    let favouriteListIcon = document.getElementById(
+      `favouriteList-${data.imdbID}`
+    );
+    favouriteListIcon.src =
+      "https://cdn-icons-png.flaticon.com/512/10037/10037207.png";
   }
 }
 
@@ -433,14 +422,13 @@ function closeInfoBox() {
   imgBlur.style.background = "none";
   homeTextBlur.style.filter = "none";
   section2.style.filter = "none";
- 
+
   section2.style.pointerEvents = "auto";
   section2.style.marginTop = "-60px";
 
   // for search box
   searchBox.style.filter = "none";
   input.style.pointerEvents = "auto";
-
 }
 
 // print movie
@@ -479,10 +467,11 @@ function addCard(element, data, isFavourite) {
   element.innerHTML = `
     <div class="img-box">
     <div class="favourite">
-       ${isFavourite ? `<img src="https://cdn-icons-png.flaticon.com/512/210/210545.png" id= favourite-${data.imdbID} alt="" class="favourite-logo active" onclick = "favouriteMovie('${data.imdbID}')">`
-    :
-    `<img src="https://cdn-icons-png.flaticon.com/512/10037/10037207.png" id= favourite-${data.imdbID} alt="" class="favourite-logo" onclick = "favouriteMovie('${data.imdbID}')">`
-    }
+       ${
+         isFavourite
+           ? `<img src="https://cdn-icons-png.flaticon.com/512/210/210545.png" id= favourite-${data.imdbID} alt="" class="favourite-logo active" onclick = "favouriteMovie('${data.imdbID}')">`
+           : `<img src="https://cdn-icons-png.flaticon.com/512/10037/10037207.png" id= favourite-${data.imdbID} alt="" class="favourite-logo" onclick = "favouriteMovie('${data.imdbID}')">`
+       }
      </div>
     <img src="${data.Poster}" alt="">
     <div class="card-body" onclick ="openInfoBox('${data.imdbID}')">
@@ -513,12 +502,10 @@ function renderList(data) {
     fetch("https://www.omdbapi.com/?i=" + data[i].imdbID + key)
       .then((response) => response.json())
       .then((data) => {
-       
-        if(favouriteListStorage.includes(data.imdbID)){
-         addMovie(data, true);
-        }
-        else{
-            addMovie(data, false);
+        if (favouriteListStorage.includes(data.imdbID)) {
+          addMovie(data, true);
+        } else {
+          addMovie(data, false);
         }
       });
   }
@@ -540,7 +527,7 @@ function favouriteMovie(imdbID) {
   }
   let favouriteListIcon = document.getElementById(`favourite-${imdbID}`);
 
-  console.log(favouriteListIcon)
+  console.log(favouriteListIcon);
   favouriteListIcon.classList.toggle("active");
   if (favouriteListIcon.classList.contains("active")) {
     favouriteListIcon.src =
@@ -549,7 +536,6 @@ function favouriteMovie(imdbID) {
     favouriteListIcon.src =
       "https://cdn-icons-png.flaticon.com/512/10037/10037207.png";
   }
-
 
   let index = favouriteListStorage.indexOf(imdbID);
   if (index !== -1) {
@@ -639,7 +625,6 @@ function renderfavouriteList(element, data) {
   }
 }
 
-
 // izitoast
 function successNoty(msg) {
   iziToast.success({
@@ -656,12 +641,18 @@ function warningNoty(msg) {
 }
 
 // console the developer info
-console.log("%c Hey! it's Utkarsh Singh,", "color : #00000; font-size : 1rem; font-weight : bold;");
-console.log("%c Passionate Full Stack Developer.", "color : #00000; font-size : 0.7rem; font-weight : bold;");
+console.log(
+  "%c Hey! it's Utkarsh Singh,",
+  "color : #00000; font-size : 1rem; font-weight : bold;"
+);
+console.log(
+  "%c Passionate Full Stack Developer.",
+  "color : #00000; font-size : 0.7rem; font-weight : bold;"
+);
 const slider = document.querySelector(".card-boxes");
 let isDown = false;
 let startX;
-let scrollLeft
+let scrollLeft;
 
 slider.addEventListener("mousedown", (e) => {
   isDown = true;

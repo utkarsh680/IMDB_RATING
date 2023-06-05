@@ -4,9 +4,7 @@
     box-sizing: border-box;
     font-family: poppins, sans-serif;
     scroll-behavior: smooth;
-    scroll-padding-top: 2rem;
-   
-    
+    scroll-padding-top: 2rem;   
 }
 body{
     background-color: rgb(17, 17, 17);     
