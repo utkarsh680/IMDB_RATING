@@ -11,7 +11,6 @@ const slogon = document.querySelector(".slogon-container");
 
 
 // menubar active
-const homeClick = document.querySelector(".home-click");
 
 
 const openMenubar = document.querySelector(".open-menubar");
@@ -23,8 +22,10 @@ function openMenubarFunction() {
   navUl.style.display = "flex";
   imgBlur.style.display = "none"; 
   homeTextBlur.style.display = "none";
-
   slogon.style.display = "none";
+  home.style.display = 'none';
+  searchBox.style.filter = "blur(3px)";
+  input.style.pointerEvents = "none";
   
 }
 function closeMenubarFunction() {
@@ -33,12 +34,51 @@ function closeMenubarFunction() {
   closeMenubar.style.display = "none";
   imgBlur.style.display = "block";
   homeTextBlur.style.display = "block";
-
-  slogon.style.display = "block";
-  
+  home.style.display = 'flex'; 
+  window.location.reload();
 }
+
 openMenubar.addEventListener("click", openMenubarFunction);
 closeMenubar.addEventListener("click", closeMenubarFunction);
+
+const homeOpenBox = document.querySelector(".home-open");
+const favouriteOpenBox = document.querySelector(".favourite-open");
+const contactOpenBox = document.querySelector(".contact-open");
+const profileOpenBox = document.querySelector(".profile-open");
+
+
+homeOpenBox.addEventListener("click", () => {
+  window.location.reload();
+  home.style.zIndex = "1";
+  navUl.style.display = "none";
+  favouriteBody.style.display = "none";
+  imgBlur.style.display = "block";
+  homeTextBlur.style.display = "block";
+  searchBox.style.filter = "none";
+  input.style.pointerEvents = "auto";
+  slogon.style.display = "flex";
+
+}
+);
+favouriteOpenBox.addEventListener("click", () => {
+  favouriteBody.style.display = "block";
+  navUl.style.display = "none";
+
+});
+
+contactOpenBox.addEventListener("click", () => {
+  navUl.style.display = "none";
+});
+
+profileOpenBox.addEventListener("click", () => {
+  navUl.style.display = "none";
+});
+const logo = document.querySelector(".logo");
+logo.addEventListener("click", () => {
+  window.location.reload();
+});
+
+
 
 
 // for home page
