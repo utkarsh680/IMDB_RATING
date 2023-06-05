@@ -11,19 +11,31 @@ const slogon = document.querySelector(".slogon-container");
 
 
 // menubar active
+const homeClick = document.querySelector(".home-click");
+
+
 const openMenubar = document.querySelector(".open-menubar");
 const closeMenubar = document.querySelector(".close-menubar");
-const navbar = document.getElementById("navbar");
+const navUl= document.querySelector(".nav-ul");
 function openMenubarFunction() {
-  openMenubar.style.toggle = "none";
   openMenubar.style.display = "none";
-  navbar.style.display = "flex";
   closeMenubar.style.display = "flex";
+  navUl.style.display = "flex";
+  imgBlur.style.display = "none"; 
+  homeTextBlur.style.display = "none";
+
+  slogon.style.display = "none";
+  
 }
 function closeMenubarFunction() {
-  navbar.style.display = "none";
+  navUl.style.display = "none";
   openMenubar.style.display = "flex";
   closeMenubar.style.display = "none";
+  imgBlur.style.display = "block";
+  homeTextBlur.style.display = "block";
+
+  slogon.style.display = "block";
+  
 }
 openMenubar.addEventListener("click", openMenubarFunction);
 closeMenubar.addEventListener("click", closeMenubarFunction);

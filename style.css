@@ -69,7 +69,7 @@ footer {
 
 .nav .logo img{
   height: 4rem;
-  width: 4rem;
+
 }
 
 .logo span{
@@ -738,9 +738,35 @@ section{
     display: flex;
     justify-content: center;
     align-items: center;
-    display: none;
-   
+    display: none;   
 }
+
+.nav-ul{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-top: 6rem;
+    align-items: center;
+    border: 4px solid #555353;
+    background-color: black;
+    border-radius: 0.5rem;
+    display: none;
+}
+.nav-ul li{
+    list-style: none;
+    margin: 10px 0px;
+    padding: 10px 100px;
+    font-size: 1rem;
+    font-weight: 600;
+    color: rgb(173, 173, 173);
+
+}
+.nav-ul li:hover{
+    color: white;
+    cursor: pointer;
+}
+
+
 
 /* responsive design */
 
@@ -825,6 +851,7 @@ section{
    .home-text .relise-date{
     font-size: 0.9rem;
    } 
+   
     
 }
 
@@ -832,23 +859,14 @@ section{
     .navbar{
         display: none;
     }
+   
     .menubar{
         display: flex;
     }
     .input-box{       
         width: 300px;  
     }
-    .navbar{
-        position: fixed;
-        top:21%;
-        right: 0;
-        background-color: rgb(145, 125, 15);
-        transform: translatey(-50%);
-        display: flex;
-        flex-direction: column;
-        row-gap: 0.5rem;    
-        display: none; 
-    }
+ 
     .nav-link{
         padding: 5px;
         background-color: black;
@@ -862,9 +880,6 @@ section{
     .nav-active{
         color: whitesmoke;
     }
-   
-    
-
 }
 /* for laptop */
 @media screen and (max-width: 840px){
@@ -967,6 +982,7 @@ section{
         left: 20px;
        
     }
+   
 }
 /* for laptop hight */
 @media screen and (max-height: 722px){ 
@@ -997,6 +1013,13 @@ section{
         width: 201px;
         height: 220px;
     }
+    .home{
+        display: block;
+        top: -20px;
+    }
+    .section1{
+        display: none;
+    }
 }
 
 /* for mobile */
@@ -1004,9 +1027,9 @@ section{
     
 .nav .logo img{
    position: absolute;
-   top: 60px;
+   top: 55px;
    left: 43%;
-  
+ 
   }
 
   .container{
