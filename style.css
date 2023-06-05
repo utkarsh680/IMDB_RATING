@@ -608,7 +608,7 @@ section{
 }
 /* favourite section */
 .favourite-body{
-    width: 100vw;
+    width: 95%;
     height: 85vh;
     display: flex;
     justify-content: center;
@@ -638,7 +638,6 @@ section{
     align-items: center;
     gap: 2rem;
     flex-wrap: wrap;
- 
 }
 .fav-image{
     height: 400px;
