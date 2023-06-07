@@ -4,7 +4,8 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=deveice-width, initial-scale=1.0">
-    <title>Home</title>
+    <title>IMDB</title>
+    <link  rel="icon" type="images/x-icon" href="https://cdn-icons-png.flaticon.com/512/5977/5977585.png" />
     <link rel="stylesheet" type="text/css" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <!-- swiper -->
@@ -33,7 +34,7 @@
                         <button type="submit" class="search-button"> <i class="fa-solid fa-magnifying-glass"></i></button>
                     </div>  
                 </div>
-                <a href ="#" class="user">
+                <a href ="https://github.com/utkarsh680?tab=repositories" target="_blank" class="user">
                     <img src="https://pbs.twimg.com/media/FjU2lkcWYAgNG6d.jpg" alt="" class="user-img">
                 </a>
                 <div class="menubar">
@@ -67,6 +68,7 @@
         </div>
         
     </header>
+    <!-- mobile menubar -->
     <div class="menubar-button-nav">
         <ul class="nav-ul">
             <li class="home-open nav-active" id = "home-open">Home</li>
@@ -79,11 +81,12 @@
             </li>
         </ul>
     </div>
+
+    <!-- footer -->
     <footer>
         <span class="developer-name">@Developed By Utkarsh Singh</span>
     </footer>
-    <!-- menubutton -->
-    
+    <!-- main section for cool look -->
     <section class="home container section1" id = "home">     
         <img src="movies.jpg" alt="movie" class="home-image">
         <div class="home-text">
@@ -108,34 +111,15 @@
             Discover, rate and watch the latest movies, TV shows and celebrities with IMDb, the world's most authoritative entertainment source.
         </div>
     </div>
-
-    <section class="container display-column section2">  
-  <div class="card-boxes" >
-    <!-- <div class="img-box">
-        <div class="favourite">
-            <img src="https://cdn-icons-png.flaticon.com/512/10037/10037207.png" id= favourite-${data.imdbID} alt="" class="favourite-logo" onclick = "favouriteMovie('${data.imdbID}')">
-        </div>
-        <img src="movies.jpg" alt="">
-        <div class="card-body" onclick ="openInfoBox('${data.imdbID}')">
-            <div class="movie-name">
-                SanamMan hji hi hio hi hi
-            </div>
-            <div class="star-year-genre">
-                
-                <div class="movie-star">****</div>
-                <div class="movie-year">2002</div>
-                <div class="movie-genre">PG-5</div>
-            </div>
-            <p class="movie-action">
-                Web Developer hi
-            </p>
-            <p class="movie-language">
-                hindi english sanskrit
-            </p>
-        </div>
-    </div> -->
+    
+    <!-- for showing card of movies -->
+    <section class="container display-column section2">
+        <div class="card-boxes" >
+        
     </div>  
     </section>
+
+
      <!-- card click box container -->
     <div class="info-box container"> 
         <div class="information"> 
@@ -146,31 +130,6 @@
     <div class="favourite-body">
         <div class="favourite-card-container">
 
-            <!-- <div class="fav-boxes">
-                <div class="fav-logo">
-                <img src="https://cdn-icons-png.flaticon.com/512/210/210545.png" id= favourite-${data.imdbID} alt="" class="favourite-logo" onclick = "favouriteMovie('${data.imdbID}')">
-                </div>
-                <div class="fav-card-info">
-                  <div class="movie-name">
-                    ${data.Title}
-                </div>
-                    <div class="star-year-genre">
-                            <div class="movie-star">${data.imdbRating}</div>
-                            <div class="movie-year">${data.Year}</div>
-                            <div class="movie-genre">${data.Rated}</div>
-                    </div>
-                    <p class="movie-action">
-                   hello sir
-                    </p>
-                    <p class="movie-language">
-                
-                    ${data.Language}
-                    </p>
-              
-                </div>
-                <img src="movies.jpg" alt="" class="movies">
-               </div>
-                 -->
         </div>
     </div>
         

@@ -7,7 +7,8 @@
     scroll-padding-top: 2rem;   
 }
 body{
-    background-color: rgb(17, 17, 17);     
+    background-color: rgb(17, 17, 17); 
+    /* background-color: #e4e3e4;     */
 }
 body::-webkit-scrollbar{
     display: none;
@@ -697,6 +698,12 @@ section{
 }
 .fav-card-info:hover{
     opacity: 1;
+}
+
+/* if movie not present in favoriteList */
+.no-favourite{
+
+    color: rgb(223, 22, 22);
 
 }
 /* add favourite button to main box */

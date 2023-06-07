@@ -7,7 +7,7 @@ const homeTextBlur = document.querySelector(".home-text");
 const section2 = document.querySelector(".section2");
 const slogon = document.querySelector(".slogon-container");
 
-// menubar active
+// mobile menubar open and close
 const openMenubar = document.querySelector(".open-menubar");
 const closeMenubar = document.querySelector(".close-menubar");
 const navUl = document.querySelector(".nav-ul");
@@ -77,7 +77,7 @@ logo.addEventListener("click", () => {
   window.location.reload();
 });
 
-// for home page
+// for  big screen home page
 let goHome = document.getElementById("home-click");
 goHome.addEventListener("click", () => {
   home.style.zIndex = "1";
@@ -86,7 +86,6 @@ goHome.addEventListener("click", () => {
   homeTextBlur.style.display = "block";
   searchBox.style.filter = "none";
   input.style.pointerEvents = "auto";
-
   // for active button
   goHome.classList.add("nav-active");
   favouriteOpen.classList.remove("nav-active");
@@ -95,9 +94,7 @@ goHome.addEventListener("click", () => {
 });
 
 // for favourite list
-const favouriteListContainer = document.querySelector(
-  ".favourite-card-container"
-);
+const favouriteListContainer = document.querySelector(".favourite-card-container");
 let favouriteOpen = document.getElementById("favourite-open");
 let favouriteBody = document.querySelector(".favourite-body");
 
@@ -194,6 +191,23 @@ function getMovie() {
   });
 }
 getMovie();
+
+// renderList();
+function renderList(data) {
+  home.innerHTML = "";
+  for (let i = 0; i < data.length; i++) {
+    fetch("https://www.omdbapi.com/?i=" + data[i].imdbID + key)
+      .then((response) => response.json())
+      .then((data) => {
+        if (favouriteListStorage.includes(data.imdbID)) {
+          addMovie(data, true);
+        } else {
+          addMovie(data, false);
+        }
+      });
+  }
+}
+
 
 // function openInfoBox
 function openInfoBox(imdbID) {
@@ -495,22 +509,6 @@ function addCard(element, data, isFavourite) {
     `;
 }
 
-// renderList();
-function renderList(data) {
-  home.innerHTML = "";
-  for (let i = 0; i < data.length; i++) {
-    fetch("https://www.omdbapi.com/?i=" + data[i].imdbID + key)
-      .then((response) => response.json())
-      .then((data) => {
-        if (favouriteListStorage.includes(data.imdbID)) {
-          addMovie(data, true);
-        } else {
-          addMovie(data, false);
-        }
-      });
-  }
-}
-
 // favorite list local storage
 let favouriteListStorage = JSON.parse(localStorage.getItem("favouriteList"));
 
@@ -553,12 +551,13 @@ function favouriteMovie(imdbID) {
 function showFavouriteList() {
   favouriteListContainer.innerHTML = "";
   if (favouriteListStorage.length === 0) {
-    favouriteListContainer.innerHTML = `<h1 class="no-favourite"  style="color: gainsboro;">No Favourite Movie</h1>`;
-  } else {
+    favouriteListContainer.innerHTML = `<div class="no-favourite">No favourite movies</div>`;
+  }else{
     for (let i = 0; i < favouriteListStorage.length; i++) {
       fetch("https://www.omdbapi.com/?i=" + favouriteListStorage[i] + key)
         .then((response) => response.json())
         .then((data) => {
+         
           // movie rating
           if (data.imdbRating === "N/A") {
             data.imdbRating = `<i class="fa-solid fa-face-sad-tear"></i>`;
@@ -649,6 +648,8 @@ console.log(
   "%c Passionate Full Stack Developer.",
   "color : #00000; font-size : 0.7rem; font-weight : bold;"
 );
+
+// for side scrollbar
 const slider = document.querySelector(".card-boxes");
 let isDown = false;
 let startX;
