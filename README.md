@@ -2,7 +2,7 @@
 
 step to follow ->
 
-Visit the IMDb Website:
+<h3>Visit the IMDb Website:</h3>
 Go to the IMDb website at https://imdb-rating-web.netlify.app/.
 
 <h3>Search for the Movie:</h3>
